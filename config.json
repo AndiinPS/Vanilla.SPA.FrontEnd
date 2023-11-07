@@ -44,11 +44,7 @@
         "title": "Fale conosco por e-mail",
         "icon": "fa-solid fa-square-envelope fa-fw"
     },
-    {
-        "href": "https://facebook.com/frontendeiros",
-        "title": "Siga-nos no Facebook",
-        "icon": "fa-brands fa-square-facebook fa-fw"
-    },
+    
     {
         "href": "https://github.com/AndiinPS",
         "title": "Siga-nos no GitHub",
