@@ -1,4 +1,5 @@
 {
+
     "siteFavicon": "assets/img/favicon.png",
     "siteLogo": "assets/img/logotipo.png",
     "siteName": "Loja de hardware",
@@ -56,4 +57,62 @@
             "icon": "fa-brands fa-square-instagram fa-fw"
         }
     ]
+=======
+"siteFavicon": "assets/img/favicon1.JPG",
+"siteLogo": "assets/img/logo.AVIF",
+"siteName": "Piloto de Fuga",
+"siteSlogan": "Acelerando ao Extremo!",
+"apiBaseURL": "http://localhost:3000",
+"siteYear": 2023,
+"siteOwner": "Anderson Santos",
+"siteMenu": [
+    {
+        "href": "home",
+        "label": "Início",
+        "icon": "fa-solid fa-house fa-fw"
+    },
+    {
+        "href": "new",
+        "label": "Novo",
+        "icon": "fa-solid fa-circle-plus fa-fw"
+    },
+    {
+        "href": "contacts",
+        "label": "Contatos",
+        "icon": "fa-solid fa-comments fa-fw"
+    },
+    {
+        "href": "about",
+        "label": "Sobre",
+        "icon": "fa-solid fa-circle-info fa-fw"
+    }
+],
+"socialList": [
+    {
+        "href": "https://wa.me/5521964681384",
+        "title": "Fale conosco pelo WhatsApp",
+        "icon": "fa-brands fa-square-whatsapp fa-fw"
+    },
+    {
+        "href": "tel:5521964681384",
+        "title": "Fale conosco pelo telefone",
+        "icon": "fa-solid fa-square-phone fa-fw"
+    },
+    {
+        "href": "mailto:anderson.programador@yahoo.com",
+        "title": "Fale conosco por e-mail",
+        "icon": "fa-solid fa-square-envelope fa-fw"
+    },
+    
+    {
+        "href": "https://github.com/AndiinPS",
+        "title": "Siga-nos no GitHub",
+        "icon": "fa-brands fa-square-github fa-fw"
+    },
+    {
+        "href": "https://instagram.com/frontendeiros",
+        "title": "Siga-nos no Instagram",
+        "icon": "fa-brands fa-square-instagram fa-fw"
+    }
+
 }

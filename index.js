@@ -1,27 +1,23 @@
-var app; // Variável global que conterá as configurações do aplicativo.
-var header = menu = license = ''; // Variáveis globais com os componentes dinâmicos da 'view'.
+// Variáveis globais (contexto global);
+var app;
+var header = menu = license = '';
+$(document).ready(runApp);
 
-$(document).ready(runApp); // jQuery: quando o documento estiver na memória, executa 'runApp()'.
-
-function runApp() { // Aplicativo principal.
-    $.get('config.json') // jQuery: obtém o arquivo 'config.json' com as configurações do aplicativo.
-        .done(data => { // jQuery: se deu certo...
-            app = data; // Armazena as configurações na global 'app'.
-            configureTheme(); // Executa o programa que configura o tema conforme as configurações.
-
-            // A sessão 'path' contém o endereço da página que está sendo acessada atualmente.
-            // Essa sessão é gerada pelos códigos da página '404.html'.
-
-            if (sessionStorage.path == undefined) // Se a sessão está vazia...
-                sessionStorage.path = 'home'; // Armazena a página inicial na sessão.
-            path = sessionStorage.path; // Obtém o caminho da página atual.
-            delete sessionStorage.path; // Apaga a sessão.
-            loadPage(path); // Executa o programa que carrega a página atual.
-            $(document).on('click', 'a', routerLink); // jQuery: monitora eventos nas tags <a> e chama o programa 'routerLink()' quando ocorrer.
-            $('#search').on('submit', search); // jQuery: se o formulário de busca for enviado, roda o programa 'search()'.
-        }).fail((e) => { // jQuery: se falhou...
-            console.error(e.statusText); // Exibe erro no console.
-            alert(`Erro! Arquivo de configuração não encontrado...`); // Exibe uma caixa de alerta para o usuário.
+function runApp() {
+    $.get('config.json')
+        .done(data => { // data é uma variável local (contexto local).
+            app = data;
+            configureTheme();
+            if (sessionStorage.path == undefined)
+                sessionStorage.path = 'home';
+            path = sessionStorage.path;
+            delete sessionStorage.path;
+            loadPage(path);
+            $(document).on('click', 'a', routerLink);
+            $('#search').on('submit', search);
+        }).fail((e) => {
+            console.error(e.statusText);
+            alert(`Erro! Arquivo de configuração não encontrado...`);
         });
 }
 
