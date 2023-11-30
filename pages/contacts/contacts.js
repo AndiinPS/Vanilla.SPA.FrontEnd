@@ -50,10 +50,25 @@ function sendContact(ev) {
     return false;
 }
 
-function saveData(data) {
-    console.log(data);
-    return true;
+    return true;// Aplicativo que envia os dados do formulário para a API.
+    function saveData(data) {
+        console.log(data);
+    
+        // Executa o método POST na URL da API, passando os dados como parâmetro.
+        $.post(
+            'https://front-test-c8bb4-default-rtdb.firebaseio.com/contact/.json',
+            JSON.stringify(data)
+        )
+            .done((certo) => {
+                console.log('certo:', certo)
+                return true;
+            })
+            .fail((errou) => {
+                console.log('errou:', errou)
+                return false;
+            })
 }
+
 
 function makeSocialList() {
     app.socialList.forEach(item => {
