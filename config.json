@@ -2,7 +2,7 @@
     "siteFavicon": "assets/img/favicon.png",
     "siteLogo": "assets/img/logotipo.png",
     "siteName": "Loja de hardware",
-    "siteSlogan": "Acumuladores ao Extremo!",
+    "siteSlogan": "Manutenção e serviços!",
     "apiBaseURL": "http://localhost:5000",
     "siteYear": 2023,
     "siteOwner": "APS",

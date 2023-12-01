@@ -2,6 +2,9 @@ function myHome() {
     changeTitle();
     console.log('home funciona');
 
+    // Limpa a sessão atual.
+    delete sessionStorage.viewData;
+
     // Obtém todos os 'item'.
     getAll('/items', '#tableItem');
 
@@ -10,6 +13,7 @@ function myHome() {
 
 }
 
+// Função que obtém os dados da API e exibe, formatados, na view.
 function getAll(endPoint, tableId) {
 
     // View da tabela.
@@ -48,13 +52,13 @@ function getAll(endPoint, tableId) {
             }
 
             // Exibe o total de registros na tabela.
-            tableData += `<tr><td>Total de ${numItems} registros.</td></tr>`
+            tableData += `<tr><td>Total de ${numItems} registros.</td></tr>`;
 
             // Envia a 'view' para a página, e exibe no elemento <tbody> da tabela correspondente.
             $(tableId + ' tbody').html(tableData);
 
             // Monitora cliques nos itens das células da tabela.
-            $('.' + tdClass).click(getOneData)
+            $('.' + tdClass).click(getClickedItem);
 
         })
 
@@ -71,7 +75,7 @@ function getAll(endPoint, tableId) {
 }
 
 // Processa clique no item da célula da tabela.
-function getOneData() {
+function getClickedItem() {
 
     // Captura a coleção que foi clicada.    
     var collection = $(this).attr('class');
@@ -79,10 +83,24 @@ function getOneData() {
     // Captura o 'id' do item clicado.
     var id = $(this).attr('data-id');
 
+    // Debug: Mostra dados do item clicado.
     console.log("Coleção:", collection, "ID:", id);
     console.log("Endpoint:", `/${collection}/${id}`);
+    
+    // Passando dados para a página 'view'.
+    // Cria um JSON com os dados a serem passados.
+    JSONData = {
+        "origin": "home",
+        "collection": collection,
+        "id": id
+    }
 
+    // Armazena o JSON no sessionStorage do navegador.
+    sessionStorage.viewData = JSON.stringify(JSONData);
+    
+    // Carrega a página 'view' para exibir detalhes do registro.
     loadPage('view');
+
 }
 
 // Roda o aplicativo quando a página estiver pronta.
